@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>PegaLog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <header>
+        <h1>PegaLog</h1>
+        Bem-vindo,
+        <%- usuario.nome %> -
+            <a href='/logout'>Logout</a>
+    </header>
+    <section>
+        <% if (dirs.length > 0) { %>
+            <h1>Diretórios</h1>
+        <% } %>
+        <% dirs.forEach(function(dir, index) { %>
+            <div>
+                <img src="/images/folder.png" alt="Folder">
+                <a href="/browser?<%= path+dir %>/">
+                    <%= dir %>
+                </a>
+            </div>
+        <% }) %>
+        <% if (files.length > 0) { %>
+            <h1>Arquivos</h1>
+        <% } %>
+        <% files.forEach(function(file, index) { %>
+            <div>
+                <img src="/images/document.png" alt="Document">
+                <a href="/view?<%= path+file %>">
+                    <%= file %>
+                </a>
+            </div>
+        <% }) %>  
+        <% if (dirs.length == 0 && files.length == 0) { %>
+            <h1>Diretório vazio!</h1>
+        <% } %>          
+    </section>
+    <footer>
+        <small>Sistema de acesso aos logs By COWEM</small>
+    </footer>
+</body>
+
+</html>

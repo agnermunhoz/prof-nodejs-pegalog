@@ -1,0 +1,41 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1 {
+  font-style: italic;
+  color: rgb(54, 0, 92);
+}
+
+header {
+  border-bottom: rgb(54, 0, 92);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: white;
+}
+
+section {
+  padding: 80px 20px 20px 20px;
+}
+
+footer {
+  border-top: rgb(54, 0, 92);
+  border-top-style: solid;
+  border-top-width: 1px;
+  font-style: italic;
+  color: rgb(54, 0, 92);
+  text-align: right;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}

@@ -1,0 +1,9 @@
+{
+    "basePath": "C:/tmp/",
+    "port": "443",
+    "ldapUrl": "ldap://domain.com:389",
+    "ldapBaseDN": "DC=domain,DC=com",
+    "ldapUsername": "username",
+    "ldapPassword": "password",
+    "ldapDomainName": "Domain.com"
+  }
