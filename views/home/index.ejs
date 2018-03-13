@@ -3,31 +3,74 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" href="/images/favicon.ico" />
     <title>PegaLog</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
     <header>
-        <h1>PegaLog</h1>
-        Entre com suas credenciais de rede!
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <img class="mr-2" src="/images/logo-white.png" />
+                <strong>PegaLog</strong>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
     </header>
-    <section>
-        <form action="/login" method="post">
-            Nome:
-            <br/>
-            <input type="text" name="usuario[nome]" placeholder="Nome" autofocus> @ 
-            <input type="text" name="usuario[domain]" placeholder="Domain" value="<%- domainName %>" tabIndex="-1">
-            <br> Senha:
-            <br/>
-            <input type="password" name="usuario[senha]" placeholder="Senha">
-            <br>
-            <button type="submit">Login</button>
+
+    <main role="main" class="container">
+        <form action="/login" method="POST">
+            <h3>Utiliza seu usuário de rede</h3>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputNome">Nome</label>
+                    <input type="text" class="form-control" id="inputNome" placeholder="Nome" name="usuario[nome]" autofocus>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="inputDomain">Domain</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="inputDomain" placeholder="Domain" name="usuario[domain]" value="<%- domainName %>"
+                            tabindex="-1" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputSenha">Senha</label>
+                    <input type="password" class="form-control" id="inputSenha" placeholder="Senha" name="usuario[senha]">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <button class="btn btn-lg btn-primary btn-block col-md-6" type="submit">Login</button>
+            </div>
         </form>
-    </section>
-    <footer>
-        <small>Sistema de acesso aos logs By COWEM</small>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Sistema de acesso aos logs By COWEM</span>
+        </div>
     </footer>
+
+    <script src="/javascripts/jquery-3.2.1.slim.min.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
 </body>
 
 </html>

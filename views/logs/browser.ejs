@@ -3,47 +3,115 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/images/favicon.ico" />
     <title>PegaLog</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
+    <!--
     <header>
         <h1>PegaLog</h1>
         Bem-vindo,
         <%- usuario.nome %> -
             <a href='/logout'>Logout</a>
     </header>
-    <section>
+-->
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <img class="mr-2" src="/images/logo-white.png" />
+                <strong>PegaLog</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/browser">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <%- usuario.nome %>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="/logout">Logout</a>
+
+                        </div>
+                    </li>
+                </ul>
+
+                <!--
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            -->
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="container">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <% if (path != '') { %>
+                    <button class="btn btn-outline-secondary active" type="button" onclick="goBack()">Voltar</button>
+                <% } else { %>
+                    <button class="btn btn-outline-secondary active" type="button" disabled>Voltar</button>
+                <% } %>
+            </div>
+            <input type="text" class="form-control" value=" /<%= path%>" disabled>
+        </div>
+
         <% if (dirs.length > 0) { %>
             <h1>Diretórios</h1>
-        <% } %>
-        <% dirs.forEach(function(dir, index) { %>
-            <div>
-                <img src="/images/folder.png" alt="Folder">
-                <a href="/browser?<%= path+dir %>/">
-                    <%= dir %>
-                </a>
-            </div>
-        <% }) %>
-        <% if (files.length > 0) { %>
-            <h1>Arquivos</h1>
-        <% } %>
-        <% files.forEach(function(file, index) { %>
-            <div>
-                <img src="/images/document.png" alt="Document">
-                <a href="/view?<%= path+file %>">
-                    <%= file %>
-                </a>
-            </div>
-        <% }) %>  
-        <% if (dirs.length == 0 && files.length == 0) { %>
-            <h1>Diretório vazio!</h1>
-        <% } %>          
-    </section>
-    <footer>
-        <small>Sistema de acesso aos logs By COWEM</small>
+            <% } %>
+                <% dirs.forEach(function(dir, index) { %>
+                    <div>
+                        <img src="/images/folder.png" alt="Folder">
+                        <a href="/browser?<%= path+dir %>/">
+                            <%= dir %>
+                        </a>
+                    </div>
+                    <% }) %>
+                        <% if (files.length > 0) { %>
+                            <h1>Arquivos</h1>
+                            <% } %>
+                                <% files.forEach(function(file, index) { %>
+                                    <div>
+                                        <img src="/images/document.png" alt="Document">
+                                        <a href="/view?<%= path+file %>">
+                                            <%= file %>
+                                        </a>
+                                    </div>
+                                    <% }) %>
+                                        <% if (dirs.length == 0 && files.length == 0) { %>
+                                            <h1>Diretório vazio!</h1>
+                                            <% } %>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Sistema de acesso aos logs By COWEM</span>
+        </div>
     </footer>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script src="/javascripts/jquery-3.2.1.slim.min.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
 </body>
 
 </html>
